@@ -6,7 +6,6 @@
 
 #include <avr/io.h>
 #include <util/delay.h>
-#include "lib/write.h"
 
 
 void main() {
