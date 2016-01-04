@@ -8,5 +8,5 @@
 #define inverse_pins(port, mask) (port ^= mask)
 
 void serial_write(volatile uint8_t* port, const int pin, char data, const int sync_pin);
- 
+
 #endif
