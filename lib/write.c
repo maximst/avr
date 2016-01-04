@@ -14,12 +14,10 @@ void serial_write(volatile uint8_t* port, const int pin, char data, const int sy
     for (i = 8; i--; i >= 0) {
         *port &= mask | ((1 & data >> i) << pin);
 
-        // If sync_pin is set then him toggled
-        if (0 <= sync_pin <= 7) {
-            *port ^= sync_mask;
-            _delay_ms(1);
-            *port ^= sync_mask;
-            _delay_ms(1);
-        }
+        // If 0 <= sync_pin <= 7 then him toggled
+        *port ^= sync_mask;
+        _delay_ms(1);
+        *port ^= sync_mask;
+        _delay_ms(1);
     }
 }
