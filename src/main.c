@@ -24,6 +24,14 @@ void main() {
     DDRB = 0b11111111;
     DDRD = 0b00000100;
     PORTD = 0b00000100;
+    
+    TCCR1A = 0b00000000;
+    TCCR1B = 0b00000101;
+    OCR1A = 21699;
+
+    TIMSK = 0b00010000;
+
+    sei();
 
     while (1) {
         show_value(&PORTB, value);
